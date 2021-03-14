@@ -26,7 +26,7 @@ function parse(filepath) {
 
     for (let child of children) {
         if (child.className == 'hdg') {
-            let title  = child.textContent.replace('(', ' (').clean()
+            let title  = removeChildren(child).textContent.clean()
             let verses = []
             let length = groups.push({ title, verses })
             let index  = length - 1
@@ -59,6 +59,11 @@ function save(chapters) {
 
 String.prototype.clean = function() {
     return this.replace(/\s/g, ' ').trim()
+}
+
+function removeChildren(element) {
+    Array.from(element.children).forEach((child)=> element.removeChild(child))
+    return element
 }
 
 main()
