@@ -23,6 +23,7 @@ function main() {
             })
         })
     })
+    chapters = chapters.sort((a, b)=> a.chapter - b.chapter)
     save(chapters)
 }
 
