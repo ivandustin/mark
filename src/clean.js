@@ -28,9 +28,8 @@ function main() {
 }
 
 function clean(str) {
-    str = str.replace(/\s/g, ' ').trim()
     SPECIAL.forEach((c)=> str.replace(c, ''))
-    return str
+    return str.replace(/\s/g, ' ').trim()
 }
 
 function save(chapters) {
